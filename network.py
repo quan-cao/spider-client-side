@@ -16,9 +16,11 @@ class Network:
         while True:
             try:
                 requests.get(f'{self.url}/ping', data={'email':self.email}).json()
+                self.app.connStatus = True
                 time.sleep(15)
             except:
                 self.app.statusBar['text'] = 'Disconnected'
+                self.app.connStatus = False
                 break
 
 
