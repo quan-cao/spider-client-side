@@ -5,10 +5,10 @@ from cls import *
 
 
 class HomemadeApplication(tk.Tk):
-
     def __init__(self, *args, **kwargs):
         tk.Tk.__init__(self, *args, **kwargs)
 
+        self.iconbitmap(default='app-icon.ico')
         self.title("Spider")
         self.resizable(0,0)
         self.version = '0.1.0'
