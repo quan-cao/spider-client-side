@@ -1,5 +1,5 @@
 import requests, time, threading, json
-from accounts import *
+from accounts import get_url
 
 
 class Network:
@@ -10,18 +10,26 @@ class Network:
 
         self.scrapeAds = False
         self.scrapeGroups = False
-        self.url = apiUrl.format(self.app.requiredString.get())
+        self.url = get_url()
 
     def ping_action(self):
+        tries = 0
         while True:
             try:
                 requests.get(f'{self.url}/ping', data={'email':self.email}).json()
                 self.app.connStatus = True
+                tries = 0
                 time.sleep(15)
             except:
-                self.app.statusBar['text'] = 'Disconnected'
-                self.app.connStatus = False
-                break
+                if tries < 3:
+                    tries += 1
+                    time.sleep(10)
+                    self.url = get_url()
+                    continue
+                else:
+                    self.app.statusBar['text'] = 'Disconnected'
+                    self.app.connStatus = False
+                    break
 
 
     def ping(self):

@@ -35,6 +35,8 @@ class MenuBar(tk.Frame):
         except:
             self.manualWindow = tk.Toplevel(self.parent)
             self.manualWindow.title('Manual')
+            self.manualWindow.geometry("800x610")
+            self.manualWindow.resizable(0,0)
             manualFrame = tk.Frame(self.manualWindow)
             manualTxt = tk.Text(manualFrame, wrap='word', padx=20, pady=5, spacing1=8, bd=3, bg='#ededed', relief='flat')
             manualTxt.insert('insert', manualText)

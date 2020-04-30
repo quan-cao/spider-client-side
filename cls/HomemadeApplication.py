@@ -12,14 +12,12 @@ class HomemadeApplication(tk.Tk):
         self.title("Spider")
         self.resizable(0,0)
         self.version = '0.1.0'
-        self.statusBarText = ''
         self.connStatus = False
 
         self.userEmailVar = tk.StringVar()
         self.userPasswordVar = tk.StringVar()
         self.rememberMeVar = tk.IntVar()
         self.rememberMeVar.set(1)
-        self.requiredString = tk.StringVar()
 
         self.emailVar = tk.StringVar()
         self.passVar = tk.StringVar()
@@ -49,7 +47,7 @@ class HomemadeApplication(tk.Tk):
         tab_control.add(AdsPostsTab, text='Ads Posts')
         tab_control.add(GroupPostsTab, text='Group Posts')
         tab_control.pack(expand=1, fill='both')
-        self.statusBar = tk.Label(inAppFrame, text=self.statusBarText, bd=1, relief='sunken', anchor='w')
+        self.statusBar = tk.Label(inAppFrame, bd=1, relief='sunken', anchor='w')
         self.statusBar.pack(side='bottom', fill='x')
 
         inAppFrame.grid(row=0, column=0)

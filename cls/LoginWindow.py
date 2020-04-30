@@ -28,14 +28,7 @@ class LoginWindow(tk.Frame):
         # Remember Me Button
         RememberBtn = tk.Checkbutton(mainFrame, text='Save Settings', variable=self.controller.rememberMeVar)
         RememberBtn.grid(columnspan=2)
-
-        # Required String
-        strLabel = tk.Label(mainFrame, text='Secret Key')
-        strLabel.grid(row=5, sticky='E')
-
-        self.strEntry = tk.Entry(mainFrame, textvariable=self.controller.requiredString)
-        self.strEntry.grid(row=5, column=1, ipadx=30)
-
+        
         # Login Button
         LoginBtn = ttk.Button(mainFrame, text='Login', command=self.loginAction)
         LoginBtn.grid(row=6, columnspan=2, ipadx=5, ipady=5, pady=10)
