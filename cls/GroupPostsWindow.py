@@ -73,9 +73,18 @@ class GroupPostsWindow(tk.Frame):
         lowerFrame.pack()
 
     def start_scrape_groups(self):
+        groupIds = self.controller.groupIdListVar.get()
+        groupIds = groupIds.split(',')
+        try:
+            groupIds = [str(int(groupId)) for groupId in groupIds]
+            groupIds = ','.join(groupIds)
+        except:
+            self.controller.statusBar['text'] = 'Group id must be number'
+            return None
+            
         self.controller.statusBar['text'] = 'Connecting...'
         r = self.controller.n.scrape_groups(self.controller.emailVar2.get(), self.controller.passVar2.get(), self.controller.teleIdVar2.get(),
-                                        self.controller.keywordsVar2.get(), self.controller.blacklistKeywordsVar2.get(), self.controller.groupIdListVar.get())
+                                        self.controller.keywordsVar2.get(), self.controller.blacklistKeywordsVar2.get(), groupIds)
         self.countDownGroups = datetime.datetime.now()
         self.controller.statusBar['text'] = r
 

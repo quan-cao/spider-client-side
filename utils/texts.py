@@ -22,6 +22,10 @@ HOW TO GET POSTS
 
 KEEP IN MIND
 - You have to be online and the app must be kept open in order to keep scraping.
+
+HOW TO GET GROUP ID
+- Browse to group, press left right mouse on the page and click on "View Page Source";
+- Use find (Ctrl + F or CMD + F) to look for "group_id=".
 """
 ## End Manual Text
 
